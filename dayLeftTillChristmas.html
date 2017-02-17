@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        function Christmas() {
+            var fulFeb, daysToChristmas;
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var year = date.getFullYear();
+
+            //This set of if statements is to determine if the year is a leap year and
+            //will set the correct number of days for February
+            if ((year % 4) == 0) {
+                if ((year % 100) == 0) {
+                    if ((year % 400) != 0)
+                        // Not a leap year
+                        fulFeb = 28;
+                    if ((year % 400) == 0)
+                        // A leap year
+                        fulFeb = 29;
+                }
+                if ((year % 100) != 0) {
+                    // A leap year
+                    fulFeb = 29;
+                }
+            }
+            if ((year % 4) != 0)
+                // Not a leap year
+                fulFeb = 28;
+
+            /*
+            Now we need to know what month it is so that we can determine how many days are left till Christmas.
+            To solve it is:
+            daysToChristmas = ( (how many days in this set month) - current date as an int ) + (days in February) + Calculated number of day in each month till Christmas.
+            --note--
+            As long as your past February you will not need add the days in February in except when looking when it is past the 25th in December.
+            */
+            if (month == 1) {
+                daysToChristmas = (31 - day) + fulFeb + 300;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 2) {
+                daysToChristmas = (fulFeb - day) + 300;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 3) {
+                daysToChristmas = (31 - day) + 269;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 4) {
+                daysToChristmas = (30 - day) + 239;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 5) {
+                daysToChristmas = (31 - day) + 208;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 6) {
+                daysToChristmas = (30 - day) + 178;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 7) {
+                daysToChristmas = (31 - day) + 147;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 8) {
+                daysToChristmas = (31 - day) + 116;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 9) {
+                daysToChristmas = (30 - day) + 86;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 10) {
+                daysToChristmas = (31 - day) + 55;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 11) {
+                daysToChristmas = (30 - day) + 25;
+                document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+            }
+            if (month == 12) {
+                if (day < 25) {
+                    daysToChristmas = (25 - day);
+                    document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+
+                }
+                else if (day == 25)
+                    document.getElementById('place').innerHTML == "Its Christmas.";
+
+                else {
+                    if ((year % 4) == 0) {
+                        if ((year % 100) == 0) {
+                            if ((year % 400) != 0)
+                                // Not a leap year
+                                fulFeb = 29;
+                            if ((year % 400) == 0)
+                                // A leap year
+                                fulFeb = 28;
+                        }
+                        if ((year % 100) != 0) {
+                            // A leap year
+                            fulFeb = 28;
+                        }
+                    }
+                    if ((year % 4) != 0)
+                        // Not a leap year
+                        fulFeb = 29;
+
+                    daysToChristmas = (31 - day) + fulFeb + 331;
+                    document.getElementById('place').innerHTML = daysToChristmas + " number of days to Christmas.";
+                }
+            }
+        }
+        
+
+
+    </script>
+</head>
+<body>
+    <h1>How Many Days Left Till Chirstmas?</h1>
+    <p>Click this button to find out:</p>
+    <button id="cm" onclick="Christmas()">Christmas</button>
+    <p id="place"></p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Area</title>
+	<meta charset="utf-8" />
+    <script>
+        function triArea() {
+            var h = document.getElementById('height').value;
+            var b = document.getElementById('base').value;
+            //Check to see if the user entered the correct information that the was given to them
+            //Tell them to correct any mistakes they make.
+            if ((7>b || b>9) || (7>h || h>9)) {
+                document.getElementById('palce').innerHTML = "You have entered a value that is not accepted try again.";
+            }
+            else{
+                if (b == h){
+                    document.getElementById('place').innerHTML = "You have entered the same value twice, please re-enter so that"+
+                        "the triangle has two different values for the base and height";
+                }
+                else{
+                    var area = ((1/2) * b * h);
+                    document.getElementById('place').innerHTML = "the area of the right triangle with base: " + b +", and height: " + h +
+                        ", is:<br>Area = " + area;
+                    //the area of a Scalene triangle is:
+                    // s = (1/2)*(Side1 + Side2 + Side3)
+                    // area = SquareRoot( s * (s - Side1) * (s - Side2) * (s -Side3) )
+                    var s = ((1 / 2) * (7 + 8 + 9));
+                    var areaT = Math.sqrt(s*(s - 7)*(s - 8)*(s - 9));
+                    document.getElementById('place2').innerHTML = "The area for a Scalene triangle where " +
+                        "all sides have a different value is:<br>" + "Area: " + areaT;
+
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Finding the Aera of a Triangle</h1>
+    <p>Here is the dimentions of a given triangle:</p>
+    <p>7 / 8 / 9</p><br />
+    <p>First we need to know the height and base for this <b>Isosceles Triangle</b></p>
+    Input the height:<input id="height" value="hhh"/>
+    Input the base:<input id="base"   value="" />
+    <p>This button will find the area:</p>
+    <button type="button" onclick="triArea()">Find the Area</button>
+    <div id="place"></div><br />
+    <p>Once you click the button it will display the area for a <b>Scalene triangle</b> where it uses all 3 sides have different lengths:</p>
+    <div id="place2"></div>
+</body>
+</html>

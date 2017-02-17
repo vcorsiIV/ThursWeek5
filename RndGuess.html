@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number Guesser</title>
+	<meta charset="utf-8" />
+    <script>
+        function rand() {
+            //generate a random number from 1 to 10
+            var rnd = Math.ceil(Math.random() * 10);
+            document.getElementById('randm').innerText = rnd;
+        }
+
+        function guess() {
+            //grab the random number
+            var answer = document.getElementById('randm').value;
+            //grab the user's guess number
+            var guess = document.getElementById('try').value;
+            //compare the two numbers, if they match state that the user is correct.
+            if (answer == guess) 
+                document.getElementById('result').innerHTML = "You are correct the number was:" + answer;
+                //if they do not match let the user know to press the button if they did not before, as well as stating
+                //that their number was not correct so they know that they should try again.
+            else
+                document.getElementById('result').innerHTML = "Try again, if you didn't press the 'Randomize?' button," +
+                    " please press it.<br>If you did your guess: " + guess + " was wrong try entering a new number in the textbox."
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Guess a Number Between 1 and 10</h1>
+    <br />
+    <p>
+        Press this button to generate a random number: 
+        <button onclick="rand()">Randomize?</button>
+        <!-- Place the random number into a hidden text input so that it can be called in the guess function -->
+        <input type="text" style="visibility:collapse" id="randm" />
+    </p>
+    <p>Now after pressing the button above try to guess the number.</p>
+    Your Guess: <input id="try" type="text"  />
+    <button onclick="guess()">Guess</button>
+    <br /><p id="result"></p>
+</body>
+</html>
